@@ -1,0 +1,7 @@
+body {
+    background-image: url(/img/image.jpg);
+}
+
+.container {
+    opacity: 0.9;
+}
