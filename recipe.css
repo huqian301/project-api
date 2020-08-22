@@ -1,0 +1,7 @@
+body {
+  background-image: url('steak-in-plate.jpeg');
+  background-size: cover;
+}
+.container {
+  opacity: 0.9;
+}
