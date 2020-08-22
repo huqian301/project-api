@@ -1,7 +1,16 @@
 body {
-    background-image: url(/img/image.jpg);
+    font-family: 'Bebas Neue', cursive;
+    background-image: url(./img/image.jpg);
 }
 
 .container {
     opacity: 0.9;
+    height: 10em;
+    position: relative;
+    margin: 0;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%); 
 }
