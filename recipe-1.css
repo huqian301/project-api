@@ -1,0 +1,16 @@
+body {
+  background-image: url('smokeymeat.JPEG');
+  background-size: cover;
+}
+
+.container {
+  padding: auto;
+  margin: auto;
+  text-align: center;
+}
+
+.card-deck {
+  opacity: 0.9;
+  justify-content: center;
+  flex-direction: row;
+}
