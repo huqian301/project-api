@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
     const recipeSearchInput = $('#recepieSearch');
-    // const apiKey = 'e6739b112bc9427a98862a95ca09ef9c';
-    const apiKey = '37d6c566dffd4e65af7bad5bf87e9617';
+    const apiKey = 'e6739b112bc9427a98862a95ca09ef9c';
+    // const apiKey = '37d6c566dffd4e65af7bad5bf87e9617';
     // const baseUrl = `https://api.spoonacular.com/recipes/716429/information?apiKey=${apiKey}&includeNutrition=true`;
     const baseUrl = `https://api.spoonacular.com/recipes/`;
 
@@ -28,23 +28,25 @@ $(document).ready(function () {
                     url: `${baseUrl}${id}/information?apiKey=${apiKey}`,
                     method: 'GET',
                 }).then(function (res) {
-                    console.log(res);
+                    console.log(res.instructions.split('.'));
+                    const instructions = res.instructions.replace(/([()])/g, '').split('.');
+                    instructions.forEach(function(instruction){
+                        console.log(instruction.trim());
 
-                    // const para = res.instructions;
-                    // const endWith = para.endsWith(".");
-
-                    console.log(para);
+                    })
+               
+                    // console.log(para);
                     
 
                     // const $newDiv = $('<div>').addClass('row row-cols-1 row-cols-md-2');
                     const $newDiv1 = $('<div>').addClass('col mb-4');
                     const $newDiv2 = $('<div>').addClass('card');
                     const $newDiv3 = $('<div>').addClass('view overlay');
-                    const $img = $('<img>').addClass('card-img-top').attr({src:res.image,style: 'width: 25rem;'});
+                    const $img = $('<img>').addClass('card-img-top').attr({src:res.image});
                     const $newDiv4 = $('<div>').addClass('card-body');
                     const $h4 = $('<h4>').addClass('card-title').text(res.title);
                     const $hr = $('<hr>');
-                    const $p = $('<p>').addClass('card-text').text('Instruction: ' +res.instructions);
+                    const $p = $('<p>').addClass('card-text').text('Instruction: ' + res.instructions.trim());
                     const $button = $('<button>').addClass('btn btn-light-blue btn-md');
                     const $a = $('<a>').attr({href: res.sourceUrl, target :'_blank'}).text('Read more');
 
