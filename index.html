@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="./img/favicon_io/android-chrome-512x512.png" type="image/x-icon" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Our Receipe App</title>
+    <title>The Home Chef</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts -->
@@ -15,6 +16,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">  -->
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -26,8 +29,8 @@
             aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-            <ul class="navbar-nav ml-auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+            <!-- <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">
                         <i class="fab fa-facebook-f"></i> Facebook
@@ -48,12 +51,11 @@
                         <a class="dropdown-item" href="#">Log out</a>
                     </div>
                 </li>
-            </ul>
-        </div> -->
+            </ul> -->
+        </div>
     </nav>
-    <!-- Navbar -->                                   
+    <!-- Navbar -->
     <div class="container">
-        
         <!-- <div class="jumbotron">
             <h1 class="display-4 text-center">Welcome To (TITLE OF APP)</h1>
         </div> -->
@@ -69,17 +71,21 @@
                             <label for="searchTerm">Recepie Search</label>
                             <input type="text" id="recepieSearch" class="form-control mb-4"
                                 placeholder="Search Receipes">
-                            <label for="searchTerm">Ingredients Replacement Search</label>
-                            <input type="text" id="ingredientsSearch" class="form-control mb-4"
-                                placeholder="Search Ingredients">
-                            <button class="btn btn-info" type="submit" id="search">Send</button>
-                            <button class="btn btn-info" type="submit" id="clear">Clear</button>
+                            <button class="btn btn-info" type="submit" id="recepieSearch-btn">Search</button>
+
+                            <br>
+                            <br>
+                            <label for="searchTerm">Nutrition Search</label>
+                            <input type="text" id="nutritionSearch" class="form-control mb-4"
+                                placeholder="Search Nutrition">
+                            <button class="btn btn-info" type="submit" id="nutritionSearch-btn">Search</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->

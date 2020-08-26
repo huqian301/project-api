@@ -18,3 +18,9 @@ body {
     margin-right: -50%;
     transform: translate(-50%, -50%); 
 }
+h2{
+    /* font-family: 'Passion One', cursive; */
+    /* font-family: 'Cookie', cursive; */
+    font-family: 'Paytone One', sans-serif;
+
+}
