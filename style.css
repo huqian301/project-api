@@ -21,11 +21,19 @@ body {
 
 /* Logo */
 #logo {
-    text-align: center;
     padding-bottom: 50px;
     opacity: 1;
 
 }
+
+img {   
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  
+  }
+
 
 /* Footer */
 #mainFooter {

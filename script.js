@@ -2,8 +2,8 @@
 $(document).ready(function () {
     const nutritionSearch = $('#nutritionSearch');
     // const nutritionInput = nutritionSearch.val().trim().toLowerCase();
-    const eApiKey = "442982f5fe2e3eca6969e00706b1793f"
-    const appId = "fa33474d"
+    const usaApiKey = "cgTLl9RejmeSHsP50max4USxEQiKyOhqYQgKfDjC"
+    
 
     const recipeSearchInput = $('#recepieSearch');
     // const nutritionSearch = $('#nutritionSearch');
@@ -20,9 +20,9 @@ $('#nutritionSearch-btn').on('click', function (event) {
     const nutritionInput = nutritionSearch.val().trim().toLowerCase();
     console.log(nutritionInput);
     $('.container').empty();
-    const eBaseUrl = `https://api.edamam.com/api/nutrition-data?&app_id=${appId}&app_key=${eApiKey}&ingr=${nutritionInput}`
+    const usaBaseUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${usaApiKey}&query=Cheddar%20Cheese`
     $.ajax({
-        url: eBaseUrl,
+        url: usaBaseUrl,
         method: 'GET',
     }).then(function (response) {
         console.log(response) 
