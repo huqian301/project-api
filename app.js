@@ -18,15 +18,56 @@ $(document).ready(function () {
         event.preventDefault();
         // console.log($recipeSearchInput);
         const drinkInput = $drinkSearch.val().trim().toLowerCase();
-        console.log(drinkInput);
+        // console.log(drinkInput);
         $('.container').empty();
         const eBaseUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkInput}`
         $.ajax({
             url: eBaseUrl,
             method: 'GET',
-        }).then(function (response) {
-            console.log(response)
+        }).then(function (r) {
+            console.log(r.drinks);
+            // console.log(r.drinks[1].strInstructions);
 
+            const cardColumn = $('<div>').addClass('card-columns');
+
+            for (i = 0; i < r.drinks.length; i++) {
+                // convert an object to array
+                const entries = Object.entries(r.drinks[i]);
+                console.log(entries);
+                // console.log(entries[21+15][1] + entries[21][1]);
+                const card = $('<div>').addClass('card booking-card mt-2 mb-4');
+                const view = $('<div>').addClass('view overlay');
+                const cardBody = $('<div>').addClass('card-body');
+                const ingr = $('<h5>').addClass('card-title').text('Ingredients');
+                const instructions = $('<h5>').addClass('card-title').text('Instructions');
+                const ul = $('<ul>');
+                const hr1 = $('<hr>');
+                const hr2 = $('<hr>');
+                const name = $('<h2>').addClass('card-title').text(r.drinks[i].strDrink);
+
+
+                for (j = 21; j < 37; j++) {
+                    if (entries[j][1] !== null || entries[j + 15][1] !== null) {
+                        const ingrLi = $('<li>').text(entries[j + 15][1] + entries[j][1]);
+                        console.log(ingrLi);
+                        
+                        ul.append(ingrLi);
+                    }
+                }
+                 const img = $('<img>').addClass('card-img-top').attr({ src: r.drinks[i].strDrinkThumb });
+                 const instr = $('<p>').addClass('card-text').text(r.drinks[i].strInstructions);
+
+
+                 cardBody.append(name,ingr,hr1,ul,instructions,hr2,instr);
+                 view.append(img);
+                 card.append(view,cardBody);
+                 cardColumn.append(card);
+                 $('.container').append(cardColumn);
+
+                 
+            }
+
+           
 
         })
     })
@@ -39,7 +80,6 @@ $(document).ready(function () {
         event.preventDefault();
         // console.log($recipeSearchInput);
         const input = $recipeSearchInput.val().trim().toLowerCase();
-        $('.container').empty();
 
         $.ajax({
             url: `${baseUrl}complexSearch?query=${input}&apiKey=${apiKey}`,
@@ -47,7 +87,7 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
 
-            const $newDiv = $('<div>').addClass('row row-cols-1 row-cols-md-2');
+            const $newDiv = $('<div>').addClass('card-columns');
 
             for (i = 0; i < 10; i++) {
                 id = response.results[i].id;
@@ -57,6 +97,7 @@ $(document).ready(function () {
                     method: 'GET',
                 }).then(function (res) {
                     console.log(res);
+                    $('.container').empty();
 
                     // break the paragraph by '.';
                     // console.log(res.instructions.split('.'));
@@ -65,8 +106,8 @@ $(document).ready(function () {
                     const $step = res.analyzedInstructions[0].steps;
                     const $prep = res.extendedIngredients;
                     // console.log(res.analyzedInstructions[0].steps[1].step);
-                    const $newDiv1 = $('<div>').addClass('col mb-4');
-                    const $newDiv2 = $('<div>').addClass('card');
+                    const $newDiv1 = $('<div>').addClass('card booking-card mt-2');
+                    // const $newDiv2 = $('<div>').addClass('card');
                     const $newDiv3 = $('<div>').addClass('view overlay');
                     const $img = $('<img>').addClass('card-img-top').attr({ src: res.image });
                     const $newDiv4 = $('<div>').addClass('card-body');
@@ -94,12 +135,10 @@ $(document).ready(function () {
                     $newDiv3.append($img);
                     $button.append($a);
                     $newDiv4.append($h4, $ingr, $hr1, $ul, $Instructions, $hr2, $ol, $button);
-                    $newDiv2.append($newDiv3, $newDiv4);
-                    $newDiv1.append($newDiv2);
+                    $newDiv1.append($newDiv3, $newDiv4);
+                    // $newDiv1.append($newDiv2);
                     $newDiv.append($newDiv1);
                     $('.container').append($newDiv);
-
-
                 })
             }
         })
