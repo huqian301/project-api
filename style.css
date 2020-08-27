@@ -1,12 +1,10 @@
 body {
-    
+    font-family: 'Bebas Neue', cursive;
     background-image: url(./img/image.jpg);
+
 }
 .col-12{
     font-family: 'Bebas Neue', cursive;
-}
-.card{
-    top: 25%;
 }
 
 .container {
@@ -15,11 +13,34 @@ body {
     position: relative;
     margin: 0;
     position: absolute;
-top:20%;
+    top: 18%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%); 
 }
+
+/* Logo */
+#logo {
+    padding-bottom: 50px;
+    opacity: 1;
+
+}
+img {   
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  
+  }
+
+  /* Footer */
+#mainFooter {
+    text-align: center;
+    margin-top: 200px;
+    color: black;
+    font-size: 20px;
+}
+
 h2{
     /* font-family: 'Passion One', cursive; */
     /* font-family: 'Cookie', cursive; */
