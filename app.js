@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
     const $drinkSearch = $('#drinkSearch');
-
     const $recipeSearchInput = $('#recepieSearch');
-    // const nutritionSearch = $('#nutritionSearch');
+
+    // while hit the api day limit, switch it to one of below
     // const apiKey = 'e6739b112bc9427a98862a95ca09ef9c';
     // const apiKey = '37d6c566dffd4e65af7bad5bf87e9617';
     const apiKey = '55fb145d0676465eb71e005685fdda51';
@@ -12,8 +12,7 @@ $(document).ready(function () {
     const baseUrl = `https://api.spoonacular.com/recipes/`;
 
 
-    // The cocktail API
-
+    // The cocktail api from TheCocktailDB
     $('#drinkSearch-btn').on('click', function (event) {
         event.preventDefault();
         // console.log($recipeSearchInput);
@@ -46,12 +45,14 @@ $(document).ready(function () {
                 const name = $('<h2>').addClass('card-title').text(r.drinks[i].strDrink);
 
 
-                for (j = 21; j < 37; j++) {
+                for (j = 21; j < 36; j++) {
                     if (entries[j][1] !== null || entries[j + 15][1] !== null) {
-                        const ingrLi = $('<li>').text(entries[j + 15][1] + entries[j][1]);
+                        if(entries[j + 15][1] !== null){
+                            const measure = entries[j + 15][1];
+                            const ingrLi = $('<li>').text(measure + entries[j][1]);
                         console.log(ingrLi);
-                        
                         ul.append(ingrLi);
+                        }
                     }
                 }
                  const img = $('<img>').addClass('card-img-top').attr({ src: r.drinks[i].strDrinkThumb });
@@ -63,19 +64,12 @@ $(document).ready(function () {
                  card.append(view,cardBody);
                  cardColumn.append(card);
                  $('.container').append(cardColumn);
-
-                 
             }
-
-           
-
         })
     })
 
 
-
-
-
+    // The recipe api from Spoonacular
     $('#recepieSearch-btn').on('click', function (event) {
         event.preventDefault();
         // console.log($recipeSearchInput);
